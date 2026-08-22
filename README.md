@@ -32,7 +32,7 @@
             display: flex;
             align-items: center;
             gap: 14px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
         }
         .header h1 {
@@ -55,6 +55,41 @@
             margin-bottom: 30px;
             border-left: 4px solid #66ccff;
             padding-left: 18px;
+        }
+        .tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #1f2a3a;
+            padding-bottom: 12px;
+        }
+        .tab-btn {
+            background: #10161f;
+            border: 1px solid #1f2a3a;
+            padding: 10px 22px;
+            border-radius: 40px;
+            color: #8899aa;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.25s;
+        }
+        .tab-btn:hover {
+            border-color: #66ccff;
+            color: #c0d0e0;
+        }
+        .tab-btn.active {
+            background: #1a2a3a;
+            border-color: #66ccff;
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(102, 204, 255, 0.05);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
         }
         .card {
             background: #10161f;
@@ -118,6 +153,30 @@
             color: #667788;
             transform: none;
         }
+        .soon-tag {
+            background: #2a2a1a;
+            color: #ffaa44;
+            border: 1px solid #ffaa44;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            margin-left: 10px;
+            text-transform: uppercase;
+        }
+        .coming-block {
+            text-align: center;
+            padding: 40px 20px;
+            color: #667788;
+            font-size: 1.2rem;
+            border: 1px dashed #2a3a4a;
+            border-radius: 16px;
+            background: #10161f;
+        }
+        .coming-block span {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
         .footer {
             margin-top: 35px;
             border-top: 1px solid #1a2a3a;
@@ -133,28 +192,11 @@
         .footer a:hover {
             color: #66ccff;
         }
-        .badge {
-            background: #1a2a3a;
-            padding: 4px 14px;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            color: #88aacc;
-            border: 1px solid #2a4a5a;
-            margin-right: 6px;
-        }
-        .soon-tag {
-            background: #2a2a1a;
-            color: #ffaa44;
-            border: 1px solid #ffaa44;
-            padding: 2px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            margin-left: 10px;
-            text-transform: uppercase;
-        }
         @media (max-width: 600px) {
             .container { padding: 25px 18px; }
             .header h1 { font-size: 1.8rem; }
+            .tabs { gap: 8px; }
+            .tab-btn { padding: 8px 16px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -167,85 +209,130 @@
     </div>
 
     <div class="sub">
-        👋 Собрал решения для частых вопросов. Если не нашёл — пиши в Telegram, добавим.
+        👋 Собрал решения для частых вопросов. Выбери раздел ниже.
     </div>
 
-    <!-- ===== КАРТОЧКА 1 ===== -->
-    <div class="card">
-        <h3>🌐 GitHub Pages — сайт не открывается</h3>
-        <p>
-            Проверь:
-            <br>1. Включил ли Pages в настройках репозитория (Settings → Pages → ветка main).
-            <br>2. Есть ли файл <code>index.html</code> в корне.
-            <br>3. Подожди 2–3 минуты после загрузки.
-            <br>4. Ссылка: <code>https://[ник].github.io/[репозиторий]/</code>
-        </p>
-        <a href="#" class="btn">📄 Гайд с картинками</a>
+    <!-- ===== ВКЛАДКИ ===== -->
+    <div class="tabs">
+        <div class="tab-btn active" data-tab="github">📘 GitHub</div>
+        <div class="tab-btn" data-tab="video">🎬 Видео</div>
+        <div class="tab-btn" data-tab="other">🎨 Другое</div>
     </div>
 
-    <!-- ===== КАРТОЧКА 2 ===== -->
-    <div class="card">
-        <h3>📦 Как залить файлы на GitHub (с телефона)</h3>
-        <p>
-            1. Зайди в репозиторий → нажми <strong>«Add file»</strong> → <strong>«Upload files»</strong>.
-            <br>2. Выбери файлы с телефона.
-            <br>3. Напиши комментарий и нажми <strong>«Commit changes»</strong>.
-            <br>4. Готово! Через минуту сайт обновится.
-        </p>
-        <a href="#" class="btn btn-coming">📱 Видео-инструкция <span class="soon-tag">скоро</span></a>
+    <!-- ============================================================ -->
+    <!-- ВКЛАДКА 1: GITHUB -->
+    <!-- ============================================================ -->
+    <div id="tab-github" class="tab-content active">
+
+        <div class="card">
+            <h3>🌐 GitHub Pages — сайт не открывается</h3>
+            <p>
+                Проверь:
+                <br>1. Включил ли Pages в настройках репозитория (Settings → Pages → ветка main).
+                <br>2. Есть ли файл <code>index.html</code> в корне.
+                <br>3. Подожди 2–3 минуты после загрузки.
+                <br>4. Ссылка: <code>https://[ник].github.io/[репозиторий]/</code>
+            </p>
+            <a href="#" class="btn">📄 Гайд с картинками</a>
+        </div>
+
+        <div class="card">
+            <h3>📦 Как залить файлы на GitHub (с телефона)</h3>
+            <p>
+                1. Зайди в репозиторий → нажми <strong>«Add file»</strong> → <strong>«Upload files»</strong>.
+                <br>2. Выбери файлы с телефона.
+                <br>3. Напиши комментарий и нажми <strong>«Commit changes»</strong>.
+                <br>4. Готово! Через минуту сайт обновится.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🧩 Как переименовать репозиторий</h3>
+            <p>
+                Зайди в <strong>Settings</strong> репозитория → в самом верху поле <strong>«Repository name»</strong> → измени → нажми <strong>«Rename»</strong>.
+                <br>Старая ссылка будет работать ещё год (редирект).
+            </p>
+            <a href="#" class="btn btn-coming">🔄 Подробнее <span class="soon-tag">скоро</span></a>
+        </div>
+
+        <div class="card">
+            <h3>🔴 Ошибка 404 на GitHub Pages</h3>
+            <p>
+                Чаще всего:
+                <br>• файл называется не <code>index.html</code> (или лежит не в корне);
+                <br>• не выбрана ветка в Pages (Settings → Pages → Branch: main);
+                <br>• сайт ещё не успел задеплоиться (подожди 2 минуты).
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📝 Как обновить сайт после изменений</h3>
+            <p>
+                Обновляешь файл <code>index.html</code> через «Edit» на GitHub → Commit → ждёшь 1–2 минуты → обновляешь страницу (Ctrl+F5).
+                <br>Сайт не обновился? Проверь, что закоммитил в ту же ветку.
+            </p>
+            <a href="#" class="btn btn-coming">🔄 Гайд <span class="soon-tag">скоро</span></a>
+        </div>
+
     </div>
 
-    <!-- ===== КАРТОЧКА 3 ===== -->
-    <div class="card">
-        <h3>🧩 Как переименовать репозиторий</h3>
-        <p>
-            Зайди в <strong>Settings</strong> репозитория → в самом верху поле <strong>«Repository name»</strong> → измени → нажми <strong>«Rename»</strong>.
-            <br>Старая ссылка будет работать ещё год (редирект).
-        </p>
-        <a href="#" class="btn btn-coming">🔄 Подробнее <span class="soon-tag">скоро</span></a>
+    <!-- ============================================================ -->
+    <!-- ВКЛАДКА 2: ВИДЕО (СКОРО) -->
+    <!-- ============================================================ -->
+    <div id="tab-video" class="tab-content">
+        <div class="coming-block">
+            <span>🎬</span>
+            Скоро здесь появятся видео-инструкции и гайды
+        </div>
     </div>
 
-    <!-- ===== КАРТОЧКА 4 ===== -->
-    <div class="card">
-        <h3>🔴 Ошибка 404 на GitHub Pages</h3>
-        <p>
-            Чаще всего:
-            <br>• файл называется не <code>index.html</code> (или лежит не в корне);
-            <br>• не выбрана ветка в Pages (Settings → Pages → Branch: main);
-            <br>• сайт ещё не успел задеплоиться (подожди 2 минуты).
-        </p>
-        <a href="#" class="btn btn-coming">🧯 Чек-лист <span class="soon-tag">скоро</span></a>
-    </div>
-
-    <!-- ===== КАРТОЧКА 5 ===== -->
-    <div class="card">
-        <h3>📝 Как обновить сайт после изменений</h3>
-        <p>
-            Обновляешь файл <code>index.html</code> через «Edit» на GitHub → Commit → ждёшь 1–2 минуты → обновляешь страницу (Ctrl+F5).
-            <br>Сайт не обновился? Проверь, что закоммитил в ту же ветку.
-        </p>
-        <a href="#" class="btn btn-coming">🔄 Гайд <span class="soon-tag">скоро</span></a>
-    </div>
-
-    <!-- ===== КАРТОЧКА 6 ===== -->
-    <div class="card">
-        <h3>🎨 Как добавить красивый баннер / предупреждение</h3>
-        <p>
-            Вставь в HTML перед контентом:
-            <br><code>&lt;div style="background:#1f0f0f; border:2px solid #ff4444; padding:18px; border-radius:14px; text-align:center; color:#ff8888;"&gt;⚠️ Твой текст&lt;/div&gt;</code>
-        </p>
-        <a href="#" class="btn btn-coming">🎨 Примеры <span class="soon-tag">скоро</span></a>
+    <!-- ============================================================ -->
+    <!-- ВКЛАДКА 3: ДРУГОЕ (СКОРО) -->
+    <!-- ============================================================ -->
+    <div id="tab-other" class="tab-content">
+        <div class="coming-block">
+            <span>🎨</span>
+            Скоро здесь будет что-то полезное и интересное
+        </div>
     </div>
 
     <!-- ПОДВАЛ -->
     <div class="footer">
-        <p>🧡 Если помогло — поставь лайк в TikTok и отметь меня.  
-        <br><a href="#">Telegram</a> · <a href="#">TikTok</a></p>
+        <p>🧡 Если помогло — поставь лайк в TikTok и отметь меня.</p>
+        <p style="margin-top: 8px;">
+            <a href="https://t.me/ymarat123tube" target="_blank">Telegram</a> · 
+            <a href="https://www.tiktok.com/@maratmegaladon?_r=1&_t=ZS-996KHhnjB5d" target="_blank">TikTok</a>
+        </p>
         <p style="margin-top: 12px; font-size: 0.8rem; color: #445566;">
             © 2026 — Problem Help / SRG
         </p>
     </div>
 
 </div>
+
+<script>
+    // Переключение вкладок
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = {
+        github: document.getElementById('tab-github'),
+        video: document.getElementById('tab-video'),
+        other: document.getElementById('tab-other')
+    };
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            tabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+
+            Object.values(contents).forEach(c => c.classList.remove('active'));
+
+            const target = this.dataset.tab;
+            if (contents[target]) {
+                contents[target].classList.add('active');
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
