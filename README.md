@@ -106,6 +106,18 @@
             border-color: #66ccff;
             color: #ffffff;
         }
+        .btn-coming {
+            background: #1a1a2a;
+            border-color: #3a3a5a;
+            color: #667788;
+            cursor: default;
+        }
+        .btn-coming:hover {
+            background: #1a1a2a;
+            border-color: #3a3a5a;
+            color: #667788;
+            transform: none;
+        }
         .footer {
             margin-top: 35px;
             border-top: 1px solid #1a2a3a;
@@ -129,6 +141,16 @@
             color: #88aacc;
             border: 1px solid #2a4a5a;
             margin-right: 6px;
+        }
+        .soon-tag {
+            background: #2a2a1a;
+            color: #ffaa44;
+            border: 1px solid #ffaa44;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            margin-left: 10px;
+            text-transform: uppercase;
         }
         @media (max-width: 600px) {
             .container { padding: 25px 18px; }
@@ -170,7 +192,7 @@
             <br>3. Напиши комментарий и нажми <strong>«Commit changes»</strong>.
             <br>4. Готово! Через минуту сайт обновится.
         </p>
-        <a href="#" class="btn">📱 Видео-инструкция</a>
+        <a href="#" class="btn btn-coming">📱 Видео-инструкция <span class="soon-tag">скоро</span></a>
     </div>
 
     <!-- ===== КАРТОЧКА 3 ===== -->
@@ -180,7 +202,7 @@
             Зайди в <strong>Settings</strong> репозитория → в самом верху поле <strong>«Repository name»</strong> → измени → нажми <strong>«Rename»</strong>.
             <br>Старая ссылка будет работать ещё год (редирект).
         </p>
-        <a href="#" class="btn">🔄 Подробнее</a>
+        <a href="#" class="btn btn-coming">🔄 Подробнее <span class="soon-tag">скоро</span></a>
     </div>
 
     <!-- ===== КАРТОЧКА 4 ===== -->
@@ -192,7 +214,7 @@
             <br>• не выбрана ветка в Pages (Settings → Pages → Branch: main);
             <br>• сайт ещё не успел задеплоиться (подожди 2 минуты).
         </p>
-        <a href="#" class="btn">🧯 Чек-лист</a>
+        <a href="#" class="btn btn-coming">🧯 Чек-лист <span class="soon-tag">скоро</span></a>
     </div>
 
     <!-- ===== КАРТОЧКА 5 ===== -->
@@ -202,7 +224,7 @@
             Обновляешь файл <code>index.html</code> через «Edit» на GitHub → Commit → ждёшь 1–2 минуты → обновляешь страницу (Ctrl+F5).
             <br>Сайт не обновился? Проверь, что закоммитил в ту же ветку.
         </p>
-        <a href="#" class="btn">🔄 Гайд</a>
+        <a href="#" class="btn btn-coming">🔄 Гайд <span class="soon-tag">скоро</span></a>
     </div>
 
     <!-- ===== КАРТОЧКА 6 ===== -->
@@ -212,7 +234,7 @@
             Вставь в HTML перед контентом:
             <br><code>&lt;div style="background:#1f0f0f; border:2px solid #ff4444; padding:18px; border-radius:14px; text-align:center; color:#ff8888;"&gt;⚠️ Твой текст&lt;/div&gt;</code>
         </p>
-        <a href="#" class="btn">🎨 Примеры</a>
+        <a href="#" class="btn btn-coming">🎨 Примеры <span class="soon-tag">скоро</span></a>
     </div>
 
     <!-- ПОДВАЛ -->
