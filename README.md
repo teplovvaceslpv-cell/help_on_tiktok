@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -215,8 +214,7 @@
     <!-- ===== ВКЛАДКИ ===== -->
     <div class="tabs">
         <div class="tab-btn active" data-tab="github">📘 GitHub</div>
-        <div class="tab-btn" data-tab="video">🎬 Видео</div>
-        <div class="tab-btn" data-tab="other">🎨 Другое</div>
+        <div class="tab-btn" data-tab="tiktok">🎬 TikTok</div>
     </div>
 
     <!-- ============================================================ -->
@@ -244,6 +242,7 @@
                 <br>3. Напиши комментарий и нажми <strong>«Commit changes»</strong>.
                 <br>4. Готово! Через минуту сайт обновится.
             </p>
+            <!-- кнопка убрана -->
         </div>
 
         <div class="card">
@@ -263,6 +262,7 @@
                 <br>• не выбрана ветка в Pages (Settings → Pages → Branch: main);
                 <br>• сайт ещё не успел задеплоиться (подожди 2 минуты).
             </p>
+            <!-- кнопка убрана -->
         </div>
 
         <div class="card">
@@ -277,22 +277,12 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- ВКЛАДКА 2: ВИДЕО (СКОРО) -->
+    <!-- ВКЛАДКА 2: TIKTOK -->
     <!-- ============================================================ -->
-    <div id="tab-video" class="tab-content">
+    <div id="tab-tiktok" class="tab-content">
         <div class="coming-block">
             <span>🎬</span>
-            Скоро здесь появятся видео-инструкции и гайды
-        </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- ВКЛАДКА 3: ДРУГОЕ (СКОРО) -->
-    <!-- ============================================================ -->
-    <div id="tab-other" class="tab-content">
-        <div class="coming-block">
-            <span>🎨</span>
-            Скоро здесь будет что-то полезное и интересное
+            Скоро здесь появятся видео-инструкции и гайды для TikTok
         </div>
     </div>
 
@@ -315,8 +305,7 @@
     const tabs = document.querySelectorAll('.tab-btn');
     const contents = {
         github: document.getElementById('tab-github'),
-        video: document.getElementById('tab-video'),
-        other: document.getElementById('tab-other')
+        tiktok: document.getElementById('tab-tiktok')
     };
 
     tabs.forEach(tab => {
